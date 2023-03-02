@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'singup.dart';
 
 void main() {
   runApp(const MyApp()); //Inicia la app
@@ -9,14 +10,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: FirstPage(),
     );
   }
 }
 
 class FirstPage extends StatelessWidget {
-  FirstPage({super.key});
+  const FirstPage({super.key});
 
   //tasks.map((e) => Container(child: Text("Hola"))).toList()
 
@@ -36,25 +37,25 @@ class FirstPage extends StatelessWidget {
           children: [
             //Spacer(),
             Container(
-                margin: EdgeInsets.all(20),
+                margin: const EdgeInsets.all(20),
                 child: Image.asset("images/image2.png")),
             // Spacer(),
             Container(
-              margin: EdgeInsets.only(left: 20, right: 20),
-              padding: EdgeInsets.all(10),
-              child: Text(
-                "Mudah dalam bertransakisi, dengan Jumot",
+              margin: const EdgeInsets.only(left: 20, right: 20),
+              padding: const EdgeInsets.all(10),
+              child: const Text(
+                "First Log in / Sign in using Flutter",
                 textAlign: TextAlign.center, //alinear el texto al centro
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
               ),
             ),
             //Spacer(),
             Container(
-              margin: EdgeInsets.only(left: 20, right: 20),
-              padding: EdgeInsets.all(10),
-              child: Text(
+              margin: const EdgeInsets.only(left: 20, right: 20),
+              padding: const EdgeInsets.all(10),
+              child: const Text(
                   textAlign: TextAlign.center,
-                  "njsnjks ijadadjjdw klsajda niadiwad insilndiwa nandi niNDI"),
+                  "You will be able to see an explample of a Log In and Sign In Using Google or Facebook"),
             ),
             // Spacer()
             Container(
@@ -62,29 +63,31 @@ class FirstPage extends StatelessWidget {
 
                 height: 50,
                 width: screenSize.width - 40,
-                margin: EdgeInsets.only(top: 45, left: 20, right: 20),
+                margin: const EdgeInsets.only(top: 45, left: 20, right: 20),
                 child: FilledButton(
-                    style: ButtonStyle(
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                    ),
+                    style: FilledButton.styleFrom(
+                        // backgroundColor: Colors.red,
+
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10))),
                     onPressed: () {},
-                    child: Text("Masuk"))),
+                    child: const Text("Sign In"))),
             Container(
                 // decoration: BoxDecoration(color: Colors.pink),
                 height: 50,
                 width: screenSize.width - 40,
-                margin: EdgeInsets.only(top: 20, left: 20, right: 20),
+                margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
                 child: OutlinedButton(
                     style: OutlinedButton.styleFrom(
-                        side: BorderSide(width: 2.0, color: Colors.blue),
+                        side: const BorderSide(width: 2.0, color: Colors.blue),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10))),
-                    onPressed: () {},
-                    child: const Text('Mendaftar')))
+                    onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                SingUp())), //Redirige a la pantalla de registro
+                    child: const Text('Sign Up')))
           ]),
     ));
   }
